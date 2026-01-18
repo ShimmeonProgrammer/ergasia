@@ -1,0 +1,309 @@
+
+/* Στυλ για το σώμα της σελίδας */
+body {
+    margin: 0; /* Χωρίς περιθώριο */
+    padding: 0; /* Χωρίς εσωτερικό περιθώριο */
+    box-sizing: border-box; /* Υπολογισμός περιθωρίων στο συνολικό πλάτος */
+    background-color: #f0f8ff; /* Απαλό γαλάζιο φόντο */
+}
+
+
+/* Στυλ για τα links στο πάνω μέρος */
+#links {
+    display: flex; /* Εμφάνιση σε σειρά */
+    justify-content: flex-end; /* Στοίχιση δεξιά */
+    gap: 10px; /* Κενό ανάμεσα στα links */
+    padding: 20px; /* Περιθώριο γύρω */
+}
+
+
+/* Στυλ για κάθε link */
+#links a {
+    text-decoration: none; /* Χωρίς υπογράμμιση */
+    color: white; /* Λευκό χρώμα */
+    background-color: #007acc; /* Μπλε φόντο */
+    padding: 10px 15px; /* Εσωτερικό περιθώριο */
+    border-radius: 20px; /* Στρογγυλεμένες γωνίες */
+}
+
+
+/* Στυλ για το λογότυπο */
+#sima {
+    width: 120px; /* Πλάτος */
+    display: block; /* Μπλοκ στοιχείο */
+    margin: 20px auto; /* Κέντρο με περιθώριο */
+}
+
+
+/* Στυλ για τα sections της σελίδας */
+.section {
+    display: flex; /* Flexbox */
+    justify-content: space-between; /* Απόσταση ανάμεσα στα στοιχεία */
+    align-items: center; /* Κάθετη στοίχιση */
+    gap: 40px; /* Κενό ανάμεσα στα στοιχεία */
+    padding: 60px 10%; /* Εσωτερικό περιθώριο */
+    background-color: #ffffff; /* Λευκό φόντο */
+    border-radius: 15px; /* Στρογγυλεμένες γωνίες */
+}
+
+/* Αντίστροφη σειρά για section */
+.section.reverse {
+    flex-direction: row-reverse;
+}
+
+
+/* Στυλ για τίτλους μέσα σε section */
+.section h1 {
+    width: 55%; /* Πλάτος */
+    font-size: 18px; /* Μέγεθος γραμματοσειράς */
+    line-height: 1.6; /* Ύψος γραμμής */
+    color: #333333; /* Σκούρο γκρι */
+}
+
+
+/* Στυλ για εικόνες μέσα σε section */
+.section img {
+    width: 45%; /* Πλάτος */
+    max-width: 500px; /* Μέγιστο πλάτος */
+    border-radius: 10px; /* Στρογγυλεμένες γωνίες */
+}
+
+
+/* Στυλ για το χάρτη */
+#map {
+    width: 80%; /* Πλάτος */
+    height: 400px; /* Ύψος */
+    display: block; /* Μπλοκ στοιχείο */
+    margin: 60px auto; /* Κέντρο με περιθώριο */
+    border-radius: 10px; /* Στρογγυλεμένες γωνίες */
+}
+
+
+/* Responsive σχεδίαση για κινητά */
+@media (max-width: 768px) {
+    .section, .section.reverse {
+        flex-direction: column; /* Κάθετη διάταξη */
+        text-align: center; /* Κέντρο κειμένου */
+    }
+
+    .section h1, .section img {
+        width: 100%; /* Πλάτος 100% */
+    }
+
+    #map {
+        width: 95%; /* Πλάτος σχεδόν όλης της οθόνης */
+    }
+}
+
+
+
+/* Νέο στυλ για το body με διαβάθμιση χρώματος και χρώμα κειμένου */
+body {
+    background: linear-gradient(135deg, #ecf0f1 0%, #f5f7fa 100%); /* Διαβάθμιση φόντου */
+    color: #2c3e50; /* Σκούρο γκρι κείμενο */
+}
+
+/* Κεντρικό container του dashboard */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Επικεφαλίδα του dashboard */
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 30px 0;
+}
+
+/* Τίτλος στην επικεφαλίδα */
+.dashboard-header h1 {
+    color: #2c3e50;
+    font-size: 36px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Υπότιτλος στην επικεφαλίδα */
+.dashboard-header p {
+    color: #7f8c8d;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Πλοήγηση dashboard */
+.dashboard-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+/* Κουμπιά πλοήγησης dashboard */
+.dashboard-nav a {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+    border: none;
+    cursor: pointer;
+}
+
+/* Εφέ hover στα κουμπιά πλοήγησης */
+.dashboard-nav a:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #1a5f7a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Grid διάταξη για κάρτες dashboard */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Κάρτα dashboard */
+.dashboard-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e8eef2;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Εφέ hover στην κάρτα dashboard */
+.dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    border-color: #3498db;
+}
+
+/* Τίτλος κάρτας dashboard */
+.dashboard-card h3 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin: 0 0 12px 0;
+    font-weight: 700;
+}
+
+/* Κείμενο κάρτας dashboard */
+.dashboard-card p {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin: 0 0 20px 0;
+    flex-grow: 1;
+}
+
+/* Κουμπί σε κάρτα dashboard */
+.dashboard-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+/* Εφέ hover στο κουμπί κάρτας */
+.dashboard-btn:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #1a5f7a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* Εναλλακτικό hover για navigation */
+.dashboard-nav a:hover {
+    background: #005fa3;
+}
+
+/* Grid διάταξη για δεύτερο dashboard */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Κάρτα δεύτερου dashboard */
+.dashboard-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+/* Hover στην κάρτα δεύτερου dashboard */
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Τίτλος κάρτας δεύτερου dashboard */
+.dashboard-card h3 {
+    color: #007acc;
+}
+
+/* Κείμενο κάρτας δεύτερου dashboard */
+.dashboard-card p {
+    color: #555;
+}
+
+/* Κουμπί δεύτερου dashboard */
+.dashboard-btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: #007acc;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+/* Hover κουμπιού δεύτερου dashboard */
+.dashboard-btn:hover {
+    background: #005fa3;
+}
+
+
+/* Στυλ για πίνακα */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Στυλ για κεφαλίδες πίνακα */
+th {
+    background: #003366;
+    color: white;
+    padding: 12px;
+}
+
+/* Στυλ για κελιά πίνακα */
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+

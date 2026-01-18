@@ -1,0 +1,54 @@
+
+/* Στυλ για το σώμα της σελίδας */
+body {
+    background-image: url('../pic/in.jpg'); /* Εικόνα φόντου */
+    background-size: cover; /* Κάλυψη όλης της οθόνης */
+    background-position: center; /* Κεντράρισμα εικόνας */
+    display: flex; /* Flexbox για κεντράρισμα */
+    justify-content: center; /* Οριζόντιο κέντρο */
+    align-items: center; /* Κάθετο κέντρο */
+    min-height: 100vh; /* Ύψος όλης της οθόνης */
+    margin: 0; /* Χωρίς περιθώριο */
+}
+
+
+/* Στυλ για τη φόρμα */
+form {
+    background: Snow; /* Χρώμα φόντου */
+    padding: 40px; /* Εσωτερικό περιθώριο */
+    border-radius: 50px; /* Στρογγυλεμένες γωνίες */
+    width: 300px; /* Πλάτος φόρμας */
+    max-width: 90%; /* Μέγιστο πλάτος */
+}
+
+
+/* Στυλ για τα πεδία εισαγωγής */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    display: block; /* Κάθε στοιχείο σε νέα γραμμή */
+    width: 100%; /* Πλάτος 100% */
+    margin: 5px 0 15px 0; /* Περιθώρια */
+    padding: 10px; /* Εσωτερικό περιθώριο */
+    border: 1px solid #ccc; /* Περίγραμμα */
+    border-radius: 4px; /* Στρογγυλεμένες γωνίες */
+}
+
+
+/* Στυλ για το κουμπί υποβολής */
+input[type="submit"] {
+    background-color: #5cb85c; /* Πράσινο χρώμα */
+    color: white; /* Λευκό κείμενο */
+    padding: 10px; /* Εσωτερικό περιθώριο */
+    border: none; /* Χωρίς περίγραμμα */
+    border-radius: 4px; /* Στρογγυλεμένες γωνίες */
+    cursor: pointer; /* Δείκτης χεριού */
+    width: 100%; /* Πλάτος 100% */
+}
+
+
+/* Αλλαγή χρώματος όταν περνάει το ποντίκι πάνω από το κουμπί */
+input[type="submit"]:hover {
+    background-color: red;
+}
