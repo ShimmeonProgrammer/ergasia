@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Εξυπηρετητής: 127.0.0.1:3306
--- Χρόνος δημιουργίας: 18 Ιαν 2026 στις 01:53:08
+-- Χρόνος δημιουργίας: 18 Ιαν 2026 στις 03:07:31
 -- Έκδοση διακομιστή: 8.4.7
 -- Έκδοση PHP: 8.3.28
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `assignments` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `course_id` (`course_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `courses` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`),
   KEY `professor_id` (`professor_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Άδειασμα δεδομένων του πίνακα `courses`
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `student_courses` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_enrollment` (`student_id`,`course_id`),
   KEY `course_id` (`course_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Άδειασμα δεδομένων του πίνακα `student_courses`

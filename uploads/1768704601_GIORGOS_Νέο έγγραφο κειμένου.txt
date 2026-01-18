@@ -1,0 +1,59 @@
+
+CREATE TABLE Actors (
+    actor_id INT PRIMARY KEY,
+    last_name VARCHAR(50),
+    first_name VARCHAR(50),
+    birth_date DATE
+);
+
+
+CREATE TABLE Movies (
+    movie_id INT PRIMARY KEY,
+    title VARCHAR(100),
+    release_year INT,
+    director VARCHAR(100),
+    duration INT,  -- Διάρκεια σε λεπτά
+    first_screening_date DATE,
+    distributor_id INT,
+    FOREIGN KEY (distributor_id) REFERENCES Distributors(distributor_id)
+);
+
+CREATE TABLE Distributors (
+    distributor_id INT PRIMARY KEY,
+    tax_id VARCHAR(20),
+    tax_office VARCHAR(100),
+    director VARCHAR(100),
+    address VARCHAR(255),
+    city VARCHAR(100),
+    email VARCHAR(100),
+    phone VARCHAR(20)
+);
+
+
+CREATE TABLE Songs (
+    song_id INT PRIMARY KEY,
+    title VARCHAR(100),
+    composer VARCHAR(100),
+    release_year INT,
+    genre VARCHAR(50),
+    lyricist VARCHAR(100),
+    duration INT  
+);
+
+
+CREATE TABLE Stars (
+    movie_id INT,
+    actor_id INT,
+    PRIMARY KEY (movie_id, actor_id),
+    FOREIGN KEY (movie_id) REFERENCES Movies(movie_id),
+    FOREIGN KEY (actor_id) REFERENCES Actors(actor_id)
+);
+
+
+CREATE TABLE Contains (
+    movie_id INT,
+    song_id INT,
+    PRIMARY KEY (movie_id),
+    FOREIGN KEY (movie_id) REFERENCES Movies(movie_id),
+    FOREIGN KEY (song_id) REFERENCES Songs(song_id)
+);

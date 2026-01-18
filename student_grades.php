@@ -1,23 +1,20 @@
 <?php
-
-// Έναρξη session
+// Ξεκινάμε το session
 session_start();
 
-// Έλεγχος αν είναι φοιτητής
+// Ελέγχουμε αν ο χρήστης είναι φοιτητής
 if(!isset($_SESSION['username']) || $_SESSION['role'] != "student"){
     header("Location: forbidden.php");
     exit();
 }
 
-// Αρχείο βαθμολογιών
-$gradesFile = "uploads/grades.json";
-if(!file_exists($gradesFile)){
-    file_put_contents($gradesFile, json_encode(array()));
-}
+// Σύνδεση με τη βάση δεδομένων
+$conn = mysqli_connect("localhost", "root", "", "websitedatabase");
+if(!$conn){ die("Σφάλμα σύνδεσης!"); }
 
-// Φόρτωση βαθμολογιών
-$grades = json_decode(file_get_contents($gradesFile), true);
-if(!is_array($grades)) $grades = array();
+// Παίρνουμε τις βαθμολογίες του φοιτητή
+$student_id = $_SESSION['user_id'];
+$res = mysqli_query($conn, "SELECT s.*, a.title as assignment_title, c.title as course_title FROM submissions s JOIN assignments a ON s.assignment_id=a.id JOIN courses c ON a.course_id=c.id WHERE s.student_id='$student_id' ORDER BY s.submitted_at DESC");
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,23 +26,32 @@ if(!is_array($grades)) $grades = array();
 <body>
 
 <div class="dashboard-container">
-    <h2>📊 Οι Βαθμολογίες μου</h2>
+    <!-- Ενότητα βαθμολογιών φοιτητή -->
+    <h2>Οι Βαθμολογίες μου</h2>
 
-    <?php
-    // Εμφάνιση βαθμολογιών
-    $found = false;
-    foreach($grades as $file => $grade){
-        if(strpos($file, $_SESSION['username']) !== false){
-            echo "<p>" . htmlspecialchars($file) . " : <strong>" . htmlspecialchars($grade) . "/10</strong></p>";
-            $found = true;
-        }
-    }
-    if(!$found){
-        echo "<p>Δεν υπάρχει βαθμολογία ακόμα.</p>";
-    }
-    ?>
+    <!-- Πίνακας με τις βαθμολογίες -->
+    <table>
+        <tr>
+            <th>Μάθημα</th>
+            <th>Εργασία</th>
+            <th>Ημ/νία Υποβολής</th>
+            <th>Βαθμός</th>
+        </tr>
+        <?php if(mysqli_num_rows($res) == 0): ?>
+            <tr>
+                <td colspan="4">Δεν υπάρχουν βαθμολογημένες εργασίες.</td>
+            </tr>
+        <?php else: while($row = mysqli_fetch_assoc($res)): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($row['course_title']); ?></td>
+                <td><?php echo htmlspecialchars($row['assignment_title']); ?></td>
+                <td><?php echo htmlspecialchars($row['submitted_at']); ?></td>
+                <td><?php echo is_null($row['grade']) ? '-' : htmlspecialchars($row['grade']); ?></td>
+            </tr>
+        <?php endwhile; endif; ?>
+    </table>
 
-    <!-- Πίσω -->
+    <!-- Κουμπί επιστροφής στο dashboard -->
     <a href="dashboard.php">Πίσω</a>
 </div>
 

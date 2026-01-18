@@ -1,8 +1,8 @@
 
-<?php // Έναρξη session ?>
+<?php // Ξεκινάμε το session ?>
 <?php session_start(); ?>
 
-<!-- Αρχική σελίδα -->
+<!-- Ενότητα αρχικής σελίδας -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<!-- Μενού πλοήγησης -->
+<!-- Μενού πλοήγησης για login/logout -->
 <div id="links">
     <?php if(isset($_SESSION['username'])): ?>
         <!-- Μήνυμα καλωσορίσματος -->
@@ -31,10 +31,10 @@
     <?php endif; ?>
 </div>
 
-<!-- Εικόνα λογότυπου -->
+<!-- Εικόνα λογότυπου πανεπιστημίου -->
 <img src="pic/sima.jpg" id="sima" alt="Logo">
 
-<!-- Ενότητα παρουσίασης σχολής -->
+<!-- Ενότητα παρουσίασης σχολής και campus -->
 <div class="section">
     <h1>
         Το Μητροπολιτικό Κολλέγιο στην Αθήνα αποτελεί μια από τις πιο δυναμικές επιλογές για πανεπιστημιακές σπουδές,
@@ -68,7 +68,7 @@
     <img src="pic/campus1.jpg" alt="Facilities">
 </div>
 
-<!-- Ενσωμάτωση Google Maps -->
+<!-- Ενσωμάτωση Google Maps για το campus -->
 <iframe
     id="map"
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.8730779135376!2d23.730813888792504!3d37.980091227952755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd381a10b1af%3A0x8c186c3b030bce10!2zzpzOt8-Ez4HOv8-Azr_Ou865z4TOuc66z4wgzprOv867zrvOrc6zzrnOvyAtIENhbXB1cyDOkc64zq7Ovc6xz4I!5e0!3m2!1sel!2sgr!4v1764700584534!5m2!1sel!2sgr"

@@ -1,4 +1,3 @@
-
 /* Στυλ για το σώμα της σελίδας */
 body {
     margin: 0; /* Χωρίς περιθώριο */
@@ -105,9 +104,12 @@ body {
 
 /* Κεντρικό container του dashboard */
 .dashboard-container {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 40px auto;
-    padding: 0 20px;
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
 
 /* Επικεφαλίδα του dashboard */
@@ -220,7 +222,6 @@ body {
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    align-self: flex-start;
 }
 
 /* Εφέ hover στο κουμπί κάρτας */
@@ -287,8 +288,9 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
-    border-radius: 15px;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 8px;
     overflow: hidden;
 }
 
@@ -304,6 +306,186 @@ td {
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid #ddd;
+}
+
+/* Στυλ για φόρμες και πίνακες καθηγητή */
+.dashboard-container form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.dashboard-container input[type="text"],
+.dashboard-container input[type="date"],
+.dashboard-container select {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.dashboard-container button {
+    background: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 14px;
+    cursor: pointer;
+}
+.dashboard-container button:hover {
+    background: #005fa3;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: #fff;
+}
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 8px;
+    text-align: center;
+}
+table th {
+    background: #007acc;
+    color: #fff;
+}
+table tr:nth-child(even) {
+    background: #f7f7f7;
+}
+.dashboard-list input[type="text"] {
+    width: auto;
+    min-width: 60px;
+}
+.dashboard-list a {
+    text-decoration: none;
+    color: #007acc;
+    font-weight: bold;
+}
+.dashboard-list a:hover {
+    color: #d32f2f;
+}
+
+/* Dashboard - βασικό layout */
+.dashboard-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+.dashboard-container h2 {
+    text-align: center;
+    color: #007acc;
+    margin-bottom: 30px;
+}
+
+/* Λίστα μαθημάτων/εργασιών */
+.dashboard-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+.dashboard-list li {
+    background: #f7faff;
+    border: 1px solid #e0eaf3;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.dashboard-list form {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+.dashboard-list input[type="text"] {
+    border: 1px solid #bcdffb;
+    border-radius: 4px;
+    padding: 4px 8px;
+    min-width: 60px;
+}
+.dashboard-list button {
+    background: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.dashboard-list button:hover {
+    background: #005fa3;
+}
+.dashboard-list a {
+    color: #d32f2f;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 8px;
+}
+.dashboard-list a:hover {
+    text-decoration: underline;
+}
+
+/* Πίνακες εργασιών/υποβολών */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+table th, table td {
+    border: 1px solid #e0eaf3;
+    padding: 10px;
+    text-align: center;
+}
+table th {
+    background: #007acc;
+    color: #fff;
+    font-weight: 600;
+}
+table tr:nth-child(even) {
+    background: #f7faff;
+}
+
+/* Φόρμες dashboard */
+.dashboard-container form input,
+.dashboard-container form select {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid #bcdffb;
+    margin-right: 8px;
+    font-size: 15px;
+}
+.dashboard-container form button {
+    background: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 16px;
+    cursor: pointer;
+    font-size: 15px;
+}
+.dashboard-container form button:hover {
+    background: #005fa3;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .dashboard-container {
+        padding: 10px 2px;
+    }
+    table th, table td {
+        padding: 6px;
+        font-size: 13px;
+    }
+    .dashboard-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 

@@ -1,9 +1,8 @@
 <?php
-
-// Έναρξη session
+// Ξεκινάμε το session
 session_start();
 
-// Καθαρισμός εισόδου
+// Συνάρτηση για καθαρισμό εισόδου
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -17,21 +16,21 @@ if(isset($_SESSION['username'])){
     exit();
 }
 
-// Σύνδεση με βάση
+// Σύνδεση με τη βάση δεδομένων
 $conn = mysqli_connect("localhost", "root", "", "websitedatabase");
 if(!$conn){
     die("Σφάλμα σύνδεσης με τη βάση δεδομένων!");
 }
 
-// Μήνυμα
+// Μήνυμα για τον χρήστη
 $message = "";
 
-// Επεξεργασία φόρμας
+// Επεξεργασία φόρμας σύνδεσης
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $email = test_input($_POST['email']);
     $password = test_input($_POST['password']);
 
-    // Έλεγχος στοιχείων
+    // Έλεγχος στοιχείων χρήστη
     $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
     $result = mysqli_query($conn, $sql);
 
@@ -42,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
         
-        // Ανακατεύθυνση
+        // Ανακατεύθυνση στην αρχική σελίδα
         header("Location: startpage.php");
         exit();
     } else {
@@ -62,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <form action="login.php" method="POST">
     <h2>Σύνδεση Χρήστη</h2>
-    <?php if(isset($message)) echo "<p style='color:red;'>$message</p>"; ?>
+    <?php if($message != "") echo "<p style='color:red;'>$message</p>"; ?>
     <input type="email" name="email" placeholder="E-mail" required>
     <input type="password" name="password" placeholder="Κωδικός" required>
     <input type="submit" value="Σύνδεση">

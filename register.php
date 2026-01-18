@@ -1,15 +1,14 @@
 <?php
-
-// Έναρξη session
+// Ξεκινάμε το session
 session_start();
 
-// Σύνδεση με βάση
+// Σύνδεση με τη βάση δεδομένων
 $conn = mysqli_connect("localhost","root","","websitedatabase");
 if(!$conn){
     die("Σφάλμα σύνδεσης με τη βάση δεδομένων!");
 }
 
-// Καθαρισμός εισόδου
+// Συνάρτηση για καθαρισμό εισόδου
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -17,10 +16,10 @@ function test_input($data) {
     return $data;
 }
 
-// Μήνυμα
+// Μήνυμα για τον χρήστη
 $message = "";
 
-// Επεξεργασία φόρμας
+// Επεξεργασία φόρμας εγγραφής
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $username = test_input($_POST['username']);
     $email = test_input($_POST['email']);
@@ -28,18 +27,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $role = test_input($_POST['role']);
     $code = test_input($_POST['code']);
 
-    // Έλεγχος κωδικού
+    // Έλεγχος ειδικού κωδικού εγγραφής
     if(($role == "student" && $code != "STUD2025") || ($role == "professor" && $code != "PROF2025")) {
         $message = "Λανθασμένος ειδικός κωδικός!";
     } else {
-        // Έλεγχος αν υπάρχει χρήστης
+        // Έλεγχος αν υπάρχει ήδη χρήστης
         $check = "SELECT * FROM users WHERE username='$username' OR email='$email'";
         $result = mysqli_query($conn, $check);
 
         if(mysqli_num_rows($result) > 0){
             $message = "Το username ή το email υπάρχει ήδη!";
         } else {
-            // Εισαγωγή χρήστη
+            // Εισαγωγή νέου χρήστη στη βάση
             $sql = "INSERT INTO users (username, email, password, role) VALUES ('$username', '$email', '$password', '$role')";
             if(mysqli_query($conn, $sql)){
                 $_SESSION['username'] = $username;
